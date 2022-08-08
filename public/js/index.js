@@ -61,3 +61,17 @@ function init() {
     const wait = txtElement.getAttribute('data-wait');
     new TypeWriter(txtElement, words, wait);
 }
+
+
+// /////////////////////////// LOGIN AND SIGN UP PAGE \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+const sign_in_btn = document.querySelector("#sign_in_btn");
+const sign_up_btn = document.querySelector("#sign_up_btn");
+const sContainer = document.querySelector(".s_container");
+
+sign_up_btn.addEventListener('click', function() {
+    sContainer.classList.add("sign_up_mode");
+});
+
+sign_in_btn.addEventListener('click', function() {
+    sContainer.classList.remove("sign_up_mode");
+});
