@@ -786,12 +786,17 @@
 
 
 /* /////////////////////////////////SIGN IN AND SIGN UP PAGE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+.susi_container {
+    margin: 2rem;
+}
+
 .s_container {
     position: relative;
     width: 100%;
     min-height: 100vh;
     background-color: #fff;
     overflow: hidden;
+    border-radius: 50px;
 }
 
 .s_container:before {
@@ -1046,14 +1051,22 @@ form.sign_up_form {
 }
 
 @media (max-width: 870px) {
+    .susi_container {
+        margin: 1rem;
+    }
+
     .s_container {
         min-height: 800px;
         height: 100vh;
     }
 
     .s_container::before {
-        /* right: -10%;
-        top: 48%; */
+        left: 30%;
+        bottom: 70%;
+        top: initial;
+        right: initial;
+        transform: translateX(-50%);
+        transition: 2s ease-in-out;
     }
 
     .signin_signup {
@@ -1061,6 +1074,7 @@ form.sign_up_form {
         left: 50%;
         top: 95%;
         transform: translate(-50%, -100%);
+        transition: 1s 0.8 ease-in-out;
     }
 
     .panels_container {
@@ -1090,6 +1104,66 @@ form.sign_up_form {
 
     .right_panel .content,
     .right_panel .sp_images {
-        transform: translateX(0px);
+        transform: translateY(300px);
+    }
+
+    .panel .content {
+        transition: 0.9s 0.8s ease-in-out;
+    }
+
+    .panel h3 {
+        font-size: 1.2rem;
+    }
+
+    .panel p {
+        font-size: 0.7rem;
+        padding: 0.5rem 0;
+    }
+
+    .s_btn.transparent {
+        width: 110px;
+        height: 35px;
+        font-size: 0.7rem;
+    }
+
+    .s_container.sign_up_mode::before {
+        transform: translate(-50%, 100%);
+        bottom: 32%;
+        right: initial;
+    }
+
+    .s_container.sign_up_mode .left_panel .sp_images,
+    .s_container.sign_up_mode .left_panel .content {
+        transform: translateY(-300px);
+    }
+
+    .s_container.sign_up_mode .signin_signup {
+        top: 5%;
+        transform: translate(-50%, 0);
+        left: 50%;
+    }
+}
+
+@media (max-width: 570px) {
+    .susi_container {
+        margin: 0;
+    }
+
+    form {
+        padding: 0 1.5rem;
+    }
+
+    /* .image {
+        display: none;
+    } */
+
+    .s_container:before {
+        bottom: 72%;
+        left: 50%;
+    }
+
+    .s_container.sign_up_mode:before {
+        bottom: 28%;
+        left: 50%;
     }
 }
