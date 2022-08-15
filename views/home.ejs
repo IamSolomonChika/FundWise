@@ -1,40 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('partials/header') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FundWise</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
 
-<body>
-
-    <!-- Navbar Section -->
-    <nav class="navbar">
-        <div class="navbar_container">
-            <a href="/" id="navbar_logo"><i class="fas fa-gem"></i>FundWise</a>
-            <div class="navbar_toggle" id="mobile_menu">
-                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-            </div>
-            <ul class="navbar_menu">
-                <li class="navbar_item"><a href="" class="navbar_links">Home</a></li>
-                <li class="navbar_item"><a href="" class="navbar_links">Services</a></li>
-                <li class="navbar_item"><a href="" class="navbar_links">Contact Us</a></li>
-                <li class="navbar_btn"><a href="" class="button">Sign In</a></li>
-                <li class="navbar_btn"><a href="" class="button">Sign Up</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
     <div class="main">
         <div class="main_container">
             <div class="main_content">
@@ -132,33 +98,6 @@
             </div>
         </div>
     </div>
-    <div class="footer">
-        <div class="social">
-            <a href="">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="">
-                <i class="fab fa-youtube"></i>
-            </a>
-        </div>
-        <ul class="list">
-            <li><a href="">Home</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Terms</a></li>
-            <li><a href="">Privacy Policy</a></li>
-        </ul>
-        <p class="copyright">
-            FundWise &copy: 2022.
-        </p>
-    </div>
-    <script src="index.js"></script>
-</body>
 
-</html>
+
+    <%- include('partials/footer') %>

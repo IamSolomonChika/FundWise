@@ -24,7 +24,7 @@ const depositSchema = new Schema({
 });
 
 const Deposit = mModel('Deposit', depositSchema);
-model.exports = 'Deposit';
+model.exports = Deposit;
 
 
 //* Schema for all withdrawals done on the platform.
@@ -35,7 +35,7 @@ const withdrawalSchema = new Schema({
 });
 
 const Withdrawal = mModel('Withdrawal', withdrawalSchema);
-model.exports = 'Withdrawal';
+model.exports = Withdrawal;
 
 
 //* Schema for users account details.
