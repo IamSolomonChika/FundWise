@@ -2,17 +2,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const port = process.env.PORT || 4000;
-import connect from "./configs/mongoDB";
+const connect = require("./configs/mongoDB");
+const webAppRoutes = require('./routes/webAppRoutes')
 
 const app = express();
 
 app.use(express.static('public'));
-app.set('view engine', ejs);
+app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-connect();
+// Connect to mongodb
+// connect();
 
-
+// routes
+app.use(webAppRoutes);
 
 
 

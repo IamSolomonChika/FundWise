@@ -4,18 +4,6 @@ const router = express.Router();
 const cleanBody = require("../middlewares/cleanbody");
 const { validateToken } = require("../middlewares/validateToken");
 
-router.get("/", (req, res, next) => {
-    res.render("home");
-});
-
-router.get("/contact", (req, res, next) => {
-    res.render("contact");
-});
-
-router.get("/", (req, res, next) => {
-    res.render("home");
-});
-
 const AuthController = require("../controllers/userController");
 
 router.post("/signup", cleanBody, AuthController.Signup);
