@@ -21,3 +21,9 @@ exports.getMonth = () => {
     let today = new Date();
     return today.toLocaleDateString("en-US", options);
 }
+
+exports.getFullYear = () => {
+    let options = { year: 'numeric' };
+    let today = new Date();
+    return today.toLocaleDateString("en-US", options);
+}

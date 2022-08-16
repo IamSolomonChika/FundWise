@@ -4,6 +4,8 @@ const ejs = require('ejs');
 const port = process.env.PORT || 4000;
 const connect = require("./configs/mongoDB");
 const webAppRoutes = require('./routes/webAppRoutes')
+const date = require('./services/dateServices')
+
 
 const app = express();
 
@@ -12,11 +14,10 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Connect to mongodb
-// connect();
+connect();
 
 // routes
 app.use(webAppRoutes);
-
 
 
 app.listen(port, () => {

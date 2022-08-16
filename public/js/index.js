@@ -73,10 +73,6 @@ sign_up_btn.addEventListener('click', function() {
     sContainer.classList.add("sign_up_mode");
 });
 
-header_signup.addEventListener('click', function() {
-    sContainer.classList.add("sign_up_mode");
-});
-
 sign_in_btn.addEventListener('click', function() {
     sContainer.classList.remove("sign_up_mode");
 });
