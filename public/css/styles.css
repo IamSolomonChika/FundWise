@@ -894,6 +894,10 @@ form.sign_up_form {
     font-weight: 500;
 }
 
+#terms {
+    cursor: pointer;
+}
+
 .s_btn {
     width: 150px;
     height: 49px;
@@ -1128,7 +1132,7 @@ form.sign_up_form {
 
     .s_container.sign_up_mode::before {
         transform: translate(-50%, 100%);
-        bottom: 32%;
+        bottom: 25%;
         right: initial;
     }
 

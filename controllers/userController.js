@@ -17,7 +17,7 @@ const referralCode = generate(CHARACTER_SET, REFERRAL_CODE_LENGTH);
 //Validate user schema
 const userSchema = Joi.object().keys({
   email: Joi.string().email({ minDomainSegments: 2 }),
-  password: Joi.string().required().min(4),
+  password: Joi.string().required().min(6),
   confirmPassword: Joi.string().valid(Joi.ref("password")).required(),
   referrer: Joi.string(),
 });

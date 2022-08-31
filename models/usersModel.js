@@ -19,8 +19,8 @@ const userSchema = new Schema(
 
         referralCode: { type: String, unique: true },
         referrer: { type: String, default: null },
-        userKyc: {type: Schema.Types._id, ref: 'UserKyc'},
-        cashFlow: {type: Schema.Types._id, ref: 'CashFlow'}
+        userKyc: { type: Schema.Types._id, ref: 'UserKyc' },
+        cashFlow: { type: Schema.Types._id, ref: 'CashFlow' }
     },
     {
         timestamps: {
@@ -52,18 +52,16 @@ module.exports.comparePasswords = async (inputPassword, hashedPassword) => {
 
 
 const userKycSchema = new Schema({
-    firstName: {type: String},
-    lastName: {type: String},
-    phoneNumber: {type: String, unique: true},
-    address: {type: String},
-    city: {type: String},
-    zip: { type: Number, required: true },
-    state: {type: String},
-    Country: {type: String},
-    user: { 
-        type: Schema.Types._id, 
-        ref: 'User'
-    }
+    firstName: { type: String },
+    lastName: { type: String },
+    phoneNumber: { type: String, unique: true },
+    address: { type: String },
+    city: { type: String },
+    zip: { type: Number },
+    state: { type: String },
+    Country: { type: String },
+    baseCurrency: { type: String },
+    user: { type: Schema.Types._id, ref: 'User' }
 }, {
     timestamps: true
 });

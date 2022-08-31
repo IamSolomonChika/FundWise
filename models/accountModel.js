@@ -1,40 +1,43 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const mModel = mongoose.model;
+const { User, UserKyc} = ('./userModel.js')
 
 
 //*Cash Flow for User and Admin Dashboard
 const cashFlowSchema = new Schema({
-    accountBal: longNumber,
-    usdtBal: longNumber,
-    user: {type: Schema.Types.id, ref: 'User'},
+    accountBal: {type: longNumber},
+    usdtBal: {type: longNumber},
+    user: {type: Schema.Types.id, ref: User},
     deposits: [{type: Schema.Types.id, ref: 'Deposit'}],
     withdrawals: [{type: Schema.Types.id, ref: 'Withdrawal'}],
     account: {type: Schema.Types.id, ref: 'Account'}
 });
 
-const CashFlow = mModel('CashFlow', cashFlowSchema);
+const CashFlow = mModel('cashFlow', cashFlowSchema);
 model.exports = CashFlow;
 
 //* Schema for all deposits done on the platform.
 const depositSchema = new Schema({
-    depositAmount: {type: String, min: '5000'},
+    amount: {type: String, min: '5000'},
+    currency: {type: Schema.Types.baseCurrency, ref: UserKyc},
     date: {type: Date, default: Date.now},
-    user: {type: Schema.Types.id, ref: 'User'},
+    user: {type: Schema.Types.id, ref: User},
 });
 
-const Deposit = mModel('Deposit', depositSchema);
+const Deposit = mModel('deposit', depositSchema);
 model.exports = Deposit;
 
 
 //* Schema for all withdrawals done on the platform.
 const withdrawalSchema = new Schema({
-    withdrawalAmount: {type: String, min: '5000'},
+    amount: {type: String, min: '5000'},
+    currency: {type: Schema.Types.baseCurrency, ref: UserKyc},
     date: {type: Date, default: Date.now},
-    user: {type: Schema.Types.id, ref: 'User'},
+    user: {type: Schema.Types.id, ref: User},
 });
 
-const Withdrawal = mModel('Withdrawal', withdrawalSchema);
+const Withdrawal = mModel('withdrawal', withdrawalSchema);
 model.exports = Withdrawal;
 
 
@@ -43,8 +46,8 @@ const accountSchema = new Schema({
     accountNumber: {type: String, require: true},
     bankName: {type: String, require: true},
     accountName: { type: String},
-    user: {type: Schema.Types.id, ref: 'User'},
+    user: {type: Schema.Types.id, ref: User},
 });
 
-const Account = mModel('Account', withdrawalSchema);
+const Account = mModel('account', withdrawalSchema);
 model.exports = Account;

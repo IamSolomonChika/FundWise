@@ -8,7 +8,8 @@ const connect = async () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         // useCreateIndex: true,
-      })
+      });
+      mongoose.Promise = global.Promise;
     } catch (error) {
       console.log(error.message)
     }
