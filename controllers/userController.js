@@ -2,7 +2,7 @@ const Joi = require("joi");
 require("dotenv").config();
 const { v4: uuid } = require("uuid");
 const { customAlphabet: generate } = require("nanoid");
-
+const bcrypt = require('bcrypt')
 const { generateJwt } = require("../configs/generateJwt");
 const { sendEmail } = require("../services/mailer");
 const User = require("../models/usersModel");
@@ -10,7 +10,7 @@ const User = require("../models/usersModel");
 const CHARACTER_SET =
   "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-const REFERRAL_CODE_LENGTH = 8;
+const REFERRAL_CODE_LENGTH = 6;
 
 const referralCode = generate(CHARACTER_SET, REFERRAL_CODE_LENGTH);
 

@@ -8,19 +8,20 @@ const Flutterwave = require('flutterwave-node-v3');
 const CHARACTER_SET =
     "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-const TAXREF_LENGTH = 7;
+const TAXREF_LENGTH = 8;
 
 const taxRef = generate(CHARACTER_SET, TAXREF_LENGTH);
 
 const flw = new Flutterwave(process.env.FLW_PUBLIC_KEY, process.env.FLW_SECRET_KEY);
 
 // Make deposit 
-exports.Deposit = async (req, res, next) => {
+exports.CashDeposit = async (req, res, next) => {
 
     const depositAmount = req.body.amount;
     const url = "";
     const customerName = UserKyc.firstName + " " + UserKyc.lastName;
 
+    // Sending payment information
     try {
         const response = await got.post('https://api.flutterwave.com/v3/payments', {
             headers: {
@@ -48,6 +49,7 @@ exports.Deposit = async (req, res, next) => {
             }
         });
 
+        // Verify Payment
         flw.Transaction.verify({ id: transactionId })
             .then((response) => {
                 if (
@@ -59,7 +61,16 @@ exports.Deposit = async (req, res, next) => {
                         res.send(deposit)
                     });
                 }
-            })
+            });
+
+        // Total Account Balance
+        const userDeposits = CashFlow.deposits.findById(req.params.userId);
+        const userWithdrawals = CashFlow.withdrawals.findById(req.params.userId);
+        const totalDeposit = () => {
+            
+        }
+
+        
 
 
     } catch (err) {
@@ -68,7 +79,7 @@ exports.Deposit = async (req, res, next) => {
     }
 }
 
-
+// Make Withdrawal
 exports.Withdraw = async (req, res) => {
     const details = {
         account_bank: Account.bankName,
@@ -81,9 +92,17 @@ exports.Withdraw = async (req, res) => {
         debit_currency: UserKyc.baseCurrency
     };
 
-    if (details.amount <= CashFlow.accountBal && UserKyc === isDone) {
+    if (details.amount <= CashFlow.accountBal && UserKyc.isDone === true) {
         flw.Transfer.initiate(details)
             .then(console.log)
             .catch(console.log);
+    }
+}
+
+
+exports.Invest = async (req, res) => {
+    try {
+        const investmentAmount = request.body.invest;
+        if (investmentAmount <= )
     }
 }

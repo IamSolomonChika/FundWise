@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
+const UserKyc = require('./userKycModel')
+const CashFlow = require('./accountModel')
 
 
 const userSchema = new Schema(
@@ -19,8 +21,8 @@ const userSchema = new Schema(
 
         referralCode: { type: String, unique: true },
         referrer: { type: String, default: null },
-        userKyc: { type: Schema.Types._id, ref: 'UserKyc' },
-        cashFlow: { type: Schema.Types._id, ref: 'CashFlow' }
+        userKyc: { type: Schema.Types.ObjectId, ref: 'UserKyc' },
+        cashFlow: { type: Schema.Types.ObjectId, ref: 'CashFlow' }
     },
     {
         timestamps: {
@@ -48,23 +50,3 @@ module.exports.comparePasswords = async (inputPassword, hashedPassword) => {
         throw new Error("Comparison failed", error);
     }
 };
-
-
-
-const userKycSchema = new Schema({
-    firstName: { type: String },
-    lastName: { type: String },
-    phoneNumber: { type: String, unique: true },
-    address: { type: String },
-    city: { type: String },
-    zip: { type: Number },
-    state: { type: String },
-    Country: { type: String },
-    baseCurrency: { type: String },
-    user: { type: Schema.Types._id, ref: 'User' }
-}, {
-    timestamps: true
-});
-
-const UserKyc = mongoose.model('UserKyc', userKycSchema);
-module.exports = UserKyc;
